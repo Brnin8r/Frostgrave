@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150710231113) do
+ActiveRecord::Schema.define(version: 20150805014048) do
+
+  create_table "allieds", force: :cascade do |t|
+    t.integer  "school_id",        limit: 4, null: false
+    t.integer  "allied_school_id", limit: 4, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  create_table "apprentices", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.integer  "move",       limit: 4
+    t.integer  "fight",      limit: 4
+    t.integer  "shoot",      limit: 4
+    t.integer  "armor",      limit: 4
+    t.integer  "will",       limit: 4
+    t.integer  "health",     limit: 4
+    t.integer  "item_id",    limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "armors", force: :cascade do |t|
     t.integer  "character_id", limit: 4
@@ -29,6 +49,7 @@ ActiveRecord::Schema.define(version: 20150710231113) do
 
   create_table "characters", force: :cascade do |t|
     t.integer  "character_type_id", limit: 4
+    t.integer  "school_id",         limit: 4
     t.string   "name",              limit: 255
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
@@ -48,9 +69,39 @@ ActiveRecord::Schema.define(version: 20150710231113) do
     t.datetime "updated_at",             null: false
   end
 
+  create_table "items", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.integer  "price",       limit: 4
+    t.text     "description", limit: 65535
+    t.integer  "damage",      limit: 4
+    t.string   "item_type",   limit: 255
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
   create_table "moves", force: :cascade do |t|
     t.integer  "character_id", limit: 4
     t.integer  "value",        limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "neutrals", force: :cascade do |t|
+    t.integer  "school_id",         limit: 4, null: false
+    t.integer  "neutral_school_id", limit: 4, null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  create_table "opposeds", force: :cascade do |t|
+    t.integer  "school_id",         limit: 4, null: false
+    t.integer  "opposed_school_id", limit: 4, null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  create_table "schools", force: :cascade do |t|
+    t.string   "name",       limit: 255, null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
@@ -60,6 +111,16 @@ ActiveRecord::Schema.define(version: 20150710231113) do
     t.integer  "value",        limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "spells", force: :cascade do |t|
+    t.integer  "name",          limit: 4,     null: false
+    t.integer  "school_id",     limit: 4,     null: false
+    t.string   "range",         limit: 255,   null: false
+    t.text     "description",   limit: 65535
+    t.integer  "casting_value", limit: 4,     null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "willpowers", force: :cascade do |t|
