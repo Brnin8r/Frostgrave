@@ -7,7 +7,7 @@ has_many :neutrals
 has_one :opposed
 has_many :allied_school, :class_name => "Allied"
 
-def allied_schools
+def allied
   school = School.find(self.id).allieds
   results = []
   school.each do |s|
@@ -16,11 +16,11 @@ def allied_schools
   results
 end
 
-def opposed_schools
+def opposed
   return School.find((School.find(self.id).opposed).opposed_school_id)
 end
 
-def neutral_schools
+def neutral
   school = School.find(self.id).neutrals
   results = []
   school.each do |s|
