@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  move: 1
+  fight: 1
+  shoot: 1
+  armor: 1
+  will: 1
+  health: 1
+  item_id: 1
+
+two:
+  name: MyString
+  move: 1
+  fight: 1
+  shoot: 1
+  armor: 1
+  will: 1
+  health: 1
+  item_id: 1
