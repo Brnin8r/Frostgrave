@@ -8,11 +8,16 @@ has_many :opposeds
 has_many :allied_school, :class_name => "Allied"
 
 def allied
+  # Look up all the allied schools in the allieds table
   school = School.find(self.id).allieds
+  # Create an array called results
   results = []
+  # For each record, look the allied school id up in the schools table
   school.each do |s|
+    # Add the returned School result to the results array
     results << School.find(s.allied_school_id)
   end
+  # Return the results
   results
 end
 
