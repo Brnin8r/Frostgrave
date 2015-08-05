@@ -4,7 +4,7 @@ has_many :characters
 has_many :spells
 has_many :allieds
 has_many :neutrals
-has_one :opposed
+has_many :opposeds
 has_many :allied_school, :class_name => "Allied"
 
 def allied
@@ -17,7 +17,8 @@ def allied
 end
 
 def opposed
-  return School.find((School.find(self.id).opposed).opposed_school_id)
+  results = School.find((School.find(self.id).opposeds).first.opposed_school_id)
+  results
 end
 
 def neutral
