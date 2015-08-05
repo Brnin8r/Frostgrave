@@ -2,7 +2,6 @@ namespace :populate_data do
   desc "TODO"
   task populate: :environment do
 
-
     # Set All Available Character Types
     charactertypes = ["Wizard","Apprentice","Soldier"]
 
