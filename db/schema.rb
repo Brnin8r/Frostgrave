@@ -13,11 +13,11 @@
 
 ActiveRecord::Schema.define(version: 20150805014048) do
 
-  create_table "allieds", force: :cascade do |t|
-    t.integer  "school_id",        limit: 4, null: false
-    t.integer  "allied_school_id", limit: 4, null: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+  create_table "allies", force: :cascade do |t|
+    t.integer  "school_id",  limit: 4, null: false
+    t.integer  "ally_id",    limit: 4, null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "apprentices", force: :cascade do |t|
@@ -87,17 +87,17 @@ ActiveRecord::Schema.define(version: 20150805014048) do
   end
 
   create_table "neutrals", force: :cascade do |t|
-    t.integer  "school_id",         limit: 4, null: false
-    t.integer  "neutral_school_id", limit: 4, null: false
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.integer  "school_id",  limit: 4, null: false
+    t.integer  "neutral_id", limit: 4, null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "opposeds", force: :cascade do |t|
-    t.integer  "school_id",         limit: 4, null: false
-    t.integer  "opposed_school_id", limit: 4, null: false
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.integer  "school_id",  limit: 4, null: false
+    t.integer  "opposed_id", limit: 4, null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "schools", force: :cascade do |t|
